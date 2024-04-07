@@ -5,6 +5,7 @@ const cors = require('cors');
 const invoiceRouter = require("./routes/invoiceRoute");
 const reportRouter = require("./routes/reportRoute");
 const userRouter = require("./routes/userRoute"); 
+const productRouter = require("./routes/productRoute"); 
 
 const PORT = process.env.PORT || 8000;
 
@@ -13,10 +14,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Route for user authentication
-app.use("/invoices", invoiceRouter);
+app.use("/invoice", invoiceRouter);
 // app.use("/reports", reportRouter);
 app.use("/user", userRouter);
-
+app.use("/product", productRouter);
 // Start the server
 const server = app.listen(PORT, () => {
   console.log(`App listening at http://localhost:${PORT}`);
