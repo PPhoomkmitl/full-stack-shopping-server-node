@@ -3,9 +3,9 @@ const app = express();
 require('dotenv').config();
 const cors = require('cors');
 const invoiceRouter = require("./routes/invoiceRoute");
-const reportRouter = require("./routes/reportRoute");
 const userRouter = require("./routes/userRoute"); 
 const productRouter = require("./routes/productRoute"); 
+const categoryRouter = require("./routes/categoryRoute"); 
 
 const PORT = process.env.PORT || 8000;
 
@@ -15,9 +15,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // Route for user authentication
 app.use("/invoice", invoiceRouter);
-// app.use("/reports", reportRouter);
 app.use("/user", userRouter);
 app.use("/product", productRouter);
+app.use("/category", categoryRouter);
+
 // Start the server
 const server = app.listen(PORT, () => {
   console.log(`App listening at http://localhost:${PORT}`);
